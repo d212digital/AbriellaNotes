@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,9 +32,20 @@ namespace AbriellaNotes.View
 
         }
 
-        private void SpeechButton_Click(object sender, RoutedEventArgs e)
+        private async void SpeechButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            string region = "uksouth";
+            string key = "c95e75a911e64892bd6cf6db93744f2f";
+
+            var speechConfig = SpeechConfig.FromSubscription(key, region);
+            using (var audioConfig = AudioConfig.FromDefaultMicrophoneInput())
+            {
+                using (var recognizer = new SpeechRecognizer(speechConfig, audioConfig))
+                {
+                    var result = await recognizer.RecognizeOnceAsync();
+
+                }
+            }
 
         }
 
