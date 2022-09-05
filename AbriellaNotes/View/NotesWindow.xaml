@@ -6,7 +6,12 @@
         xmlns:local="clr-namespace:AbriellaNotes.View"
         xmlns:vm="clr-namespace:AbriellaNotes.ViewModel"
         mc:Ignorable="d"
-        Title="NotesWindow" Height="600" Width="800">
+        Title="Abriella Care - Patient Notes" Height="600"
+        Width="800" 
+        FontSize="16"
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen">
+
     <Window.Resources>
         <vm:NotesVM x:Key="vm"/>
     </Window.Resources>
