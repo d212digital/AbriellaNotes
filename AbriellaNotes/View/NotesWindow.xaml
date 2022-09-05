@@ -14,9 +14,11 @@
         <vm:NotesVM x:Key="vm"/>
     </Window.Resources>
     <DockPanel DataContext="{StaticResource vm}">
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="File" Height="20" Width="auto"
-                      FontSize="16">
+        <Menu DockPanel.Dock="Top"
+              Padding="3,5,5,2">
+            <MenuItem Header="File" Height="25" Width="25"
+                      FontSize="16"
+                      Padding="1,0,0,3">
                 <MenuItem Header="New notebook"
                           Command="{Binding NewNotebookCommand}"/>
                 <MenuItem Header="New note"
@@ -41,7 +43,7 @@
                     <TextBlock Text="{Binding Name}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            
+
         </ListView>
         <ListView DockPanel.Dock="Left"
                   Width="140"
@@ -62,7 +64,7 @@
                     <TextBlock Text="B"
                                FontWeight="Bold"/>
                 </Button>
-                
+
             </ToolBar>
         </ToolBarTray>
         <Grid>

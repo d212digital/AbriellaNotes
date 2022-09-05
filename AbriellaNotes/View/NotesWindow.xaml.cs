@@ -46,7 +46,7 @@ namespace AbriellaNotes.View
         private void Boldbutton_Click(object sender, RoutedEventArgs e)
         {
 
-            ContentRichTextBox.Selection.ApplyPropertyValue(Inline)
+            ContentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Bold);
 
         }
     }
