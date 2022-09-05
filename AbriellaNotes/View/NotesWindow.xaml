@@ -31,6 +31,7 @@
         </Menu>
         <ListView DockPanel.Dock="Left"
                   Width="140"
+                  SelectedItem="{Binding SelectedNotebook, Mode=TwoWay}"
                   ItemsSource="{Binding Notebooks}">
             <ListView.ItemTemplate>
                 <DataTemplate>
