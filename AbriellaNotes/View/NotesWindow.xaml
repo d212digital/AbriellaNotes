@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AbriellaNotes.View"
         mc:Ignorable="d"
-        Title="NotesWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="NotesWindow" Height="600" Width="800">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="File" Height="60" Width="60"
+                      FontSize="16">
+                <MenuItem Header="New notebook"/>
+                <MenuItem Header="New note"/>
+                <Separator/>
+                <MenuItem Header="Exit"
+                          Click="MenuItem_Click"/>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            
+        </Grid>
+     
+    </DockPanel>
 </Window>
