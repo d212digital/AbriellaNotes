@@ -35,14 +35,17 @@
             <MenuItem Header="Edit" Height="25" Width="auto"
                       FontSize="14"
                       Padding="1,0,6,3">
-                <MenuItem Header="New notebook"
-                          Command="{Binding NewNotebookCommand}"/>
-                <MenuItem Header="New note"
-                          Command="{Binding NewNoteCommand}"
-                          CommandParameter="{Binding SelectedNotebook}"/>
+                <MenuItem Header="Undo"/>
+                <MenuItem Header="Redo"/>
                 <Separator/>
-                <MenuItem Header="Exit"
-                          Click="MenuItem_Click"/>
+                <MenuItem Header="Cut"/>
+                <MenuItem Header="Copy"/>
+                <MenuItem Header="Paste"/>
+                <MenuItem Header="Delete"/>
+                <Separator/>
+                <MenuItem Header="Select All"/>
+                <Separator/>
+                <MenuItem Header="Search Notes"/>
             </MenuItem>
             
             <MenuItem Header="View" Height="25" Width="auto"
