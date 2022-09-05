@@ -6,10 +6,8 @@
         xmlns:local="clr-namespace:AbriellaNotes.View"
         xmlns:vm="clr-namespace:AbriellaNotes.ViewModel"
         mc:Ignorable="d"
-        Title="Abriella Care - Patient Notes" Height="600"
-        Width="800" 
+        Title="Abriella Care - Patient Notes" Height="650" Width="800" 
         FontSize="16"
-        WindowState="Maximized"
         WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
@@ -17,7 +15,7 @@
     </Window.Resources>
     <DockPanel DataContext="{StaticResource vm}">
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="File" Height="60" Width="60"
+            <MenuItem Header="File" Height="20" Width="auto"
                       FontSize="16">
                 <MenuItem Header="New notebook"
                           Command="{Binding NewNotebookCommand}"/>
@@ -31,7 +29,7 @@
         </Menu>
         <ListView DockPanel.Dock="Left"
                   Width="140"
-                  SelectedItem="{Binding SelectedNotebook, Mode=TwoWay}"
+                  SelectedValue="{Binding SelectedNotebook, Mode=TwoWay}"
                   ItemsSource="{Binding Notebooks}">
             <ListView.ItemTemplate>
                 <DataTemplate>

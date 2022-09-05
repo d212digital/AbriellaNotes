@@ -59,13 +59,12 @@ namespace AbriellaNotes.ViewModel
 
         public void CreateNote(int notebookId)
         {
-            Note newNote = new Note()
+            Note newNote = new Note
             {
                 NotebookId = notebookId,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                Title = "New Note"
-
+                Title = $"Note for {DateTime.Now}"
             };
 
             DatabaseHelper.Insert(newNote);
