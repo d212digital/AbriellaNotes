@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -43,6 +44,7 @@ namespace AbriellaNotes.View
                 using (var recognizer = new SpeechRecognizer(speechConfig, audioConfig))
                 {
                     var result = await recognizer.RecognizeOnceAsync();
+                    ContentRichTextBox.Document.Blocks.Add(new Paragraph(new Run(result.Text)));
 
                 }
             }
@@ -59,9 +61,19 @@ namespace AbriellaNotes.View
 
         private void Boldbutton_Click(object sender, RoutedEventArgs e)
         {
+            bool isButtonChecked = (sender as ToggleButton).IsChecked ?? false;
 
-            ContentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Bold);
+            if (isButtonChecked)
+           
+                ContentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Bold);
+            else
+                ContentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Normal);
+        }
 
+        private void ContentRichTextBox_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            var selectedWeight = ContentRichTextBox.Selection.GetPropertyValue(FontWeightProperty);
+            Boldbutton.IsChecked = (selectedWeight != DependencyProperty.UnsetValue) && selectedWeight.Equals(FontWeights.Bold);
         }
     }
 }

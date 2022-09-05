@@ -6,19 +6,22 @@
         xmlns:local="clr-namespace:AbriellaNotes.View"
         xmlns:vm="clr-namespace:AbriellaNotes.ViewModel"
         mc:Ignorable="d"
-        Title="Abriella Care - Patient Notes" Height="650" Width="800" 
+        Title="Abriella Care - Patient Notes" Height="800" Width="1800" 
         FontSize="16"
         WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <vm:NotesVM x:Key="vm"/>
     </Window.Resources>
+    
     <DockPanel DataContext="{StaticResource vm}">
+        
         <Menu DockPanel.Dock="Top"
-              Padding="3,5,5,2">
-            <MenuItem Header="File" Height="25" Width="25"
-                      FontSize="16"
-                      Padding="1,0,0,3">
+              Padding="3,6,5,6">
+            
+            <MenuItem Header="File" Height="25" Width="auto"
+                      FontSize="14"
+                      Padding="1,0,6,3">
                 <MenuItem Header="New notebook"
                           Command="{Binding NewNotebookCommand}"/>
                 <MenuItem Header="New note"
@@ -28,14 +31,93 @@
                 <MenuItem Header="Exit"
                           Click="MenuItem_Click"/>
             </MenuItem>
+            
+            <MenuItem Header="Edit" Height="25" Width="auto"
+                      FontSize="14"
+                      Padding="1,0,6,3">
+                <MenuItem Header="New notebook"
+                          Command="{Binding NewNotebookCommand}"/>
+                <MenuItem Header="New note"
+                          Command="{Binding NewNoteCommand}"
+                          CommandParameter="{Binding SelectedNotebook}"/>
+                <Separator/>
+                <MenuItem Header="Exit"
+                          Click="MenuItem_Click"/>
+            </MenuItem>
+            
+            <MenuItem Header="View" Height="25" Width="auto"
+                      FontSize="14"
+                      Padding="1,0,6,3">
+                <MenuItem Header="New notebook"
+                          Command="{Binding NewNotebookCommand}"/>
+                <MenuItem Header="New note"
+                          Command="{Binding NewNoteCommand}"
+                          CommandParameter="{Binding SelectedNotebook}"/>
+                <Separator/>
+                <MenuItem Header="Exit"
+                          Click="MenuItem_Click"/>
+            </MenuItem>
+
+            <MenuItem Header="Note" Height="25" Width="auto"
+                      FontSize="14"
+                      Padding="1,0,6,3">
+                <MenuItem Header="New notebook"
+                          Command="{Binding NewNotebookCommand}"/>
+                <MenuItem Header="New note"
+                          Command="{Binding NewNoteCommand}"
+                          CommandParameter="{Binding SelectedNotebook}"/>
+                <Separator/>
+                <MenuItem Header="Quit Abriella Notes"
+                          Click="MenuItem_Click"/>
+            </MenuItem>
+
+            <MenuItem Header="Tools" Height="25" Width="auto"
+                      FontSize="14"
+                      Padding="1,0,6,3">
+                <MenuItem Header="Account Info"/>
+                <MenuItem Header="Settings"/>
+            </MenuItem>
+
+            <MenuItem Header="Window" Height="25" Width="auto"
+                      FontSize="14"
+                      Padding="1,0,6,3">
+                <MenuItem Header="Minimise Window"/>
+                <MenuItem Header="Close"
+                          Click="MenuItem_Click"/>
+            </MenuItem>
+
+            <MenuItem Header="Help" Height="25" Width="auto"
+                      FontSize="14"
+                      Padding="1,0,6,3">
+                <MenuItem Header="Help &amp; Training"/>
+                <MenuItem Header="Quick Tour"/>
+                <MenuItem Header="Share Feedback"/>
+                <Separator/>
+                <MenuItem Header="Release Notes"/>
+                <MenuItem Header="Check for updates"/>
+                <Separator/>
+                <MenuItem Header="About Abriella Notes"/>
+            </MenuItem>
         </Menu>
+        
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>
                 <TextBlock x:Name="statusTextBlock" />
             </StatusBarItem>
         </StatusBar>
         <ListView DockPanel.Dock="Left"
-                  Width="140"
+                  Width="180"
+                  Background="Black">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="Menu"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+        <ListView DockPanel.Dock="Left"
+                  Width="160"
+                  Background="LightGray"
                   SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding Notebooks}">
             <ListView.ItemTemplate>
@@ -46,7 +128,7 @@
 
         </ListView>
         <ListView DockPanel.Dock="Left"
-                  Width="140"
+                  Width="350"
                   ItemsSource="{Binding Notes}">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -59,17 +141,18 @@
                 <Button Content="Speech"
                         Click="SpeechButton_Click">
                 </Button>
-                <Button x:Name="Boldbutton"
+                <ToggleButton x:Name="Boldbutton"
                         Click="Boldbutton_Click">
                     <TextBlock Text="B"
                                FontWeight="Bold"/>
-                </Button>
+                </ToggleButton>
 
             </ToolBar>
         </ToolBarTray>
         <Grid>
             <RichTextBox x:Name="ContentRichTextBox"
-                         TextChanged="ContentRichTextBox_TextChanged"/>
+                         TextChanged="ContentRichTextBox_TextChanged"
+                         SelectionChanged="ContentRichTextBox_SelectionChanged"/>
         </Grid>
     </DockPanel>
 </Window>
