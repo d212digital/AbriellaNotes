@@ -35,6 +35,19 @@ namespace AbriellaNotes.View
 
         }
 
-       
+        private void ContentRichTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            int amountOfCharacters = (new TextRange(ContentRichTextBox.Document.ContentStart, ContentRichTextBox.Document.ContentEnd)).Text.Length;
+
+            statusTextBlock.Text = $"Document Lenght: {amountOfCharacters}  characters";
+
+        }
+
+        private void Boldbutton_Click(object sender, RoutedEventArgs e)
+        {
+
+            ContentRichTextBox.Selection.ApplyPropertyValue(Inline)
+
+        }
     }
 }
