@@ -4,14 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AbriellaNotes.View"
+        xmlns:vm="clr-namespace:AbriellaNotes.ViewModel"
         mc:Ignorable="d"
         Title="NotesWindow" Height="600" Width="800">
-    <DockPanel>
+    <Window.Resources>
+        <vm:NotesVM x:Key="vm"/>
+    </Window.Resources>
+    <DockPanel DataContext="{StaticResource vm}">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File" Height="60" Width="60"
                       FontSize="16">
-                <MenuItem Header="New notebook"/>
-                <MenuItem Header="New note"/>
+                <MenuItem Header="New notebook"
+                          Command="{Binding NewNotebookCommand}"/>
+                <MenuItem Header="New note"
+                          Command="{Binding NewNoteCommand}"
+                          CommandParameter="{Binding SelectedNotebook}"/>
                 <Separator/>
                 <MenuItem Header="Exit"
                           Click="MenuItem_Click"/>
