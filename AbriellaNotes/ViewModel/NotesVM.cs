@@ -1,4 +1,5 @@
 ﻿using AbriellaNotes.Model;
+using AbriellaNotes.ViewModel.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,6 +25,14 @@ namespace AbriellaNotes.ViewModel
 		}
 
 		public ObservableCollection<Note> Notes { get; set; }
+		public NewNotebookCommand NewNotebookCommand { get; set; }
+		public NewNoteCommand NewNoteCommand { get; set; }
+
+		public NotesVM()
+		{
+			NewNotebookCommand = new NewNotebookCommand(this);
+			NewNoteCommand = new NewNoteCommand(this);
+		}
 
 	}
 }
