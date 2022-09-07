@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AbriellaNotes.View"
+        xmlns:uc="clr-namespace:AbriellaNotes.View.UserControls"
         xmlns:vm="clr-namespace:AbriellaNotes.ViewModel"
         mc:Ignorable="d"
         Title="Abriella Care - Patient Notes" Height="800" Width="1800" 
@@ -119,13 +120,14 @@
 
         </ListView>
         <ListView DockPanel.Dock="Left"
+                  
                   Width="160"
                   Background="LightGray"
-                  SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedValue="{Binding SelectedNotebook}"
                   ItemsSource="{Binding Notebooks}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Name}"/>
+                    <uc:DisplayNotebookControl Notebook="{Binding}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
 
