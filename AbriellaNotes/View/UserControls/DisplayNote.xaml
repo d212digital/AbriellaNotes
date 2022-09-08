@@ -14,7 +14,7 @@
                    FontWeight="Bold"/>
         <TextBlock Text="{Binding UpdatedAt}"
                    Margin="0,10,0,0"
-                   Foreground="DodgerBlue"
+                   Foreground="DarkBlue"
                    FontSize="12"/>
     </StackPanel>
 </UserControl>
