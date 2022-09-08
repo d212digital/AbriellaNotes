@@ -12,9 +12,11 @@ namespace AbriellaNotes.ViewModel.Commands
     {
         public event EventHandler CanExecuteChanged;
 
+        public NotesVM NotesVM { get; set; }
+        
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void Execute(object parameter)
