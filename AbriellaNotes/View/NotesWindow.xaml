@@ -18,7 +18,9 @@
     <DockPanel DataContext="{StaticResource vm}">
         
         <Menu DockPanel.Dock="Top"
-              Padding="3,6,5,6">
+              Padding="3,6,5,6"
+              Background="Black"
+              Foreground="White">
             
             <MenuItem Header="File" Height="25" Width="auto"
                       FontSize="14"
@@ -111,8 +113,8 @@
         </StatusBar>
        
         <ListView DockPanel.Dock="Left"
-                  Background="MidnightBlue"
-                  Width="314"
+                  Background="DarkGray"
+                  Width="300"
                   SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding Notebooks}">
             <ListView.ItemTemplate>
@@ -124,6 +126,7 @@
         </ListView>
         <ListView DockPanel.Dock="Left"
                   Width="380"
+                  Background="LightGray"
                   ItemsSource="{Binding Notes}">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -132,23 +135,28 @@
             </ListView.ItemTemplate>
         </ListView>
         <ToolBarTray DockPanel.Dock="Top"
-                     Margin="5,0,10,0">
+                     Margin="0,0,10,0"
+                     Background="White">
             <ToolBar>
                 <Button Content="Speech"
+                         Width="100"
                         Click="SpeechButton_Click">
                 </Button>
                 <ToggleButton x:Name="BoldButton"
-                        Click="BoldButton_Click">
+                        Click="BoldButton_Click"
+                               Width="20">
                     <TextBlock Text="B"
                                FontWeight="Bold"/>
                 </ToggleButton>
                 <ToggleButton x:Name="ItalicButton"
-                        Click="ItalicButton_Click">
+                        Click="ItalicButton_Click"
+                               Width="20">
                     <TextBlock Text="I"
                                FontStyle="Italic"/>
                 </ToggleButton>
                 <ToggleButton x:Name="UnderlineButton"
-                        Click="UnderlineButton_Click">
+                        Click="UnderlineButton_Click"
+                               Width="20">
                     <TextBlock Text="U"
                                TextDecorations="Underline"/>
                 </ToggleButton>
