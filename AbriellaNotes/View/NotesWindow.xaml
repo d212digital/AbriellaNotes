@@ -120,9 +120,8 @@
 
         </ListView>
         <ListView DockPanel.Dock="Left"
-                  
+                  Background="MidnightBlue"
                   Width="160"
-                  Background="LightGray"
                   SelectedValue="{Binding SelectedNotebook}"
                   ItemsSource="{Binding Notebooks}">
             <ListView.ItemTemplate>
