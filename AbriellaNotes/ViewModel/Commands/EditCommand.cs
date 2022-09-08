@@ -12,7 +12,7 @@ namespace AbriellaNotes.ViewModel.Commands
     {
         public event EventHandler CanExecuteChanged;
 
-        public NotesVM NotesVM { get; set; }
+        public NotesVM ViewModel { get; set; }
         
         public bool CanExecute(object parameter)
         {
@@ -21,7 +21,8 @@ namespace AbriellaNotes.ViewModel.Commands
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            ViewModel.StartEditing();
         }
+        
     }
 }

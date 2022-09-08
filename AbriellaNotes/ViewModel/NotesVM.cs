@@ -102,5 +102,11 @@ namespace AbriellaNotes.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public void StartEditing()
+        {
+            // TODO: Implement this method
+
+        }
+
     }
 }
