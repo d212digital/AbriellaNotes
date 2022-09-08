@@ -111,11 +111,8 @@
     <Compile Include="View\NotesWindow.xaml.cs">
       <DependentUpon>NotesWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\UserControls\DisplayNotebookControl.xaml.cs">
-      <DependentUpon>DisplayNotebookControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\UserControls\DisplayNotesControl.xaml.cs">
-      <DependentUpon>DisplayNotesControl.xaml</DependentUpon>
+    <Compile Include="View\UserControls\DisplayNotebook.xaml.cs">
+      <DependentUpon>DisplayNotebook.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -157,11 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\UserControls\DisplayNotebookControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\UserControls\DisplayNotesControl.xaml">
+    <Page Include="View\UserControls\DisplayNotebook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

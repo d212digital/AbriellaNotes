@@ -12,12 +12,13 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace AbriellaNotes.View.UserControls
 {
     /// <summary>
-    /// Interaction logic for DisplayNotebookControl.xaml
+    /// Interaction logic for DisplayNotebook.xaml
     /// </summary>
-    public partial class DisplayNotebookControl : UserControl
+    public partial class DisplayNotebook : UserControl
     {
         public Notebook Notebook
         {
@@ -27,19 +28,18 @@ namespace AbriellaNotes.View.UserControls
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty NotebookProperty =
-            DependencyProperty.Register("Notebook", typeof(Notebook), typeof(DisplayNotebookControl), new PropertyMetadata(null, SetValues));
+            DependencyProperty.Register("Notebook", typeof(Notebook), typeof(DisplayNotebook), new PropertyMetadata(null, SetValues));
 
         private static void SetValues(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            DisplayNotebookControl notebookUserControl = d as DisplayNotebookControl;
+            DisplayNotebook notebookUserControl = d as DisplayNotebook;
 
             if (notebookUserControl != null)
             {
                 notebookUserControl.DataContext = notebookUserControl.Notebook;
             }
         }
-
-        public DisplayNotebookControl()
+        public DisplayNotebook()
         {
             InitializeComponent();
         }

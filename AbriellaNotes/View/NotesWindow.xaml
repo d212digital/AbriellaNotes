@@ -109,24 +109,15 @@
                 <TextBlock x:Name="statusTextBlock" />
             </StatusBarItem>
         </StatusBar>
-        <ListView DockPanel.Dock="Left"
-                  Width="180"
-                  Background="Black">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="Menu"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-
-        </ListView>
+       
         <ListView DockPanel.Dock="Left"
                   Background="MidnightBlue"
-                  Width="160"
-                  SelectedValue="{Binding SelectedNotebook}"
+                  Width="250"
+                  SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding Notebooks}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <uc:DisplayNotebookControl Notebook="{Binding}"/>
+                    <TextBlock Text="{Binding Name}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
 
@@ -136,7 +127,7 @@
                   ItemsSource="{Binding Notes}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <uc:DisplayNotesControl Note="{Binding}"/>
+                    <TextBlock Text="{Binding Title }"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
