@@ -112,26 +112,27 @@
        
         <ListView DockPanel.Dock="Left"
                   Background="MidnightBlue"
-                  Width="250"
+                  Width="314"
                   SelectedValue="{Binding SelectedNotebook, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding Notebooks}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Name}"/>
+                    <uc:DisplayNotebook Notebook="{Binding}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
 
         </ListView>
         <ListView DockPanel.Dock="Left"
-                  Width="350"
+                  Width="380"
                   ItemsSource="{Binding Notes}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Title }"/>
+                    <uc:DisplayNote Note="{Binding}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ToolBarTray DockPanel.Dock="Top">
+        <ToolBarTray DockPanel.Dock="Top"
+                     Margin="5,0,10,0">
             <ToolBar>
                 <Button Content="Speech"
                         Click="SpeechButton_Click">
@@ -164,7 +165,8 @@
         <Grid>
             <RichTextBox x:Name="ContentRichTextBox"
                          TextChanged="ContentRichTextBox_TextChanged"
-                         SelectionChanged="ContentRichTextBox_SelectionChanged"/>
+                         SelectionChanged="ContentRichTextBox_SelectionChanged" 
+                         Margin="5,0,10,0"/>
         </Grid>
     </DockPanel>
 </Window>
