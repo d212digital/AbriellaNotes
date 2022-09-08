@@ -119,7 +119,17 @@
                   ItemsSource="{Binding Notebooks}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <uc:DisplayNotebook Notebook="{Binding}"/>
+                    <Grid>
+                    <uc:DisplayNotebook Notebook="{Binding}">
+                        <uc:DisplayNotebook.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Rename"
+                                          />
+                            </ContextMenu>
+                        </uc:DisplayNotebook.ContextMenu>
+                    </uc:DisplayNotebook>
+                    <TextBox/>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
 
