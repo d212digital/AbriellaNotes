@@ -4,12 +4,11 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AbriellaNotes.View.UserControls" 
-             xmlns:viewmodel="clr-namespace:AbriellaNotes.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:NotesVM}"
              mc:Ignorable="d"
              d:DesignHeight="100" d:DesignWidth="300">
     <Grid>
-        <TextBlock Text="{Binding Name}"
-                   Foreground="White"
+        <TextBlock Text="{Binding Name}" 
+        Foreground="White"
                    Margin="15"
                    FontSize="20"
                    FontWeight="Bold"

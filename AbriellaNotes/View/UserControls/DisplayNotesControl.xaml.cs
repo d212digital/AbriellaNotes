@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AbriellaNotes.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,23 @@ namespace AbriellaNotes.View.UserControls
     /// </summary>
     public partial class DisplayNotesControl : UserControl
     {
+        public Note Note
+        {
+            get { return (Note)GetValue(NoteProperty); }
+            set { SetValue(NoteProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty NoteProperty =
+            DependencyProperty.Register("Notebook", typeof(Note), typeof(DisplayNotesControl), new PropertyMetadata(null, SetValues));
+
+        private static void SetValues(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is DisplayNotesControl noteUserControl)
+            {
+                noteUserControl.DataContext = noteUserControl.Note;
+            }
+        }
         public DisplayNotesControl()
         {
             InitializeComponent();
