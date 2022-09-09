@@ -185,6 +185,10 @@
                           Width="50"
                           IsEditable="True"
                           TextBoxBase.TextChanged="FontSizeComboBox_TextChanged"/>
+                <Button Content="Save"
+                         Width="100"
+                        Click="Button_Click">
+                </Button>
 
             </ToolBar>
         </ToolBarTray>

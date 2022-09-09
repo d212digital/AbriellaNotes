@@ -30,6 +30,18 @@ namespace AbriellaNotes.ViewModel
             }
         }
 
+        private Note SelectedNote;
+
+        public Note MyProperty
+        {
+            get { return SelectedNote; }
+            set 
+            { 
+                SelectedNote = value;
+                OnPropertyChanged("SelectedNote");
+            }
+        }
+        
         private Visibility isVisible;
 
         public Visibility IsVisible
