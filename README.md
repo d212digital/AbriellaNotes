@@ -7,7 +7,7 @@ Sample Screenshot:
 ![screenshot](https://user-images.githubusercontent.com/33350634/189292355-39f56b24-258c-4e35-937c-0e0f87c467ab.png)
 
 
-I've used Microsoft STT API endpoints using Azure and Microsoft.CognitiveServicesSpeechServices to use it on your project, create a resource get your API Key, add your key to the SpeechButton_Click method in NotesWindow.xaml.cs build the product and click the speech button, dictate your note and it will auto update the note. It's brilliantly accurate. 
+I've used Microsoft STT API endpoints using Azure and Microsoft.CognitiveServicesSpeechServices. To use it on your project, create an AI resource over on Azure, get your API Key, add your key to the SpeechButton_Click method in NotesWindow.xaml.cs build and click the speech button, dictate your note and it will auto update the note. It's brilliantly accurate. 
 
 I have tried also creating it using the built in Windows SpeechRecognition Engine and whilst it works, it's nowhere near as accurate. 
 
