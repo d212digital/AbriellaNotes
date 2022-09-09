@@ -7,12 +7,18 @@ using System.Windows.Input;
 
 namespace AbriellaNotes.ViewModel.Commands
 {
-    internal class EditCommand : ICommand
+    public class EditCommand : ICommand
 
     {
         public event EventHandler CanExecuteChanged;
 
         public NotesVM ViewModel { get; set; }
+
+        public EditCommand(NotesVM vm)
+        {
+            ViewModel = vm;
+        }
+        
         
         public bool CanExecute(object parameter)
         {

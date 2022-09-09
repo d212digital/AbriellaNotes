@@ -18,9 +18,7 @@
     <DockPanel DataContext="{StaticResource vm}">
         
         <Menu DockPanel.Dock="Top"
-              Padding="3,6,5,6"
-              Background="Black"
-              Foreground="White">
+              Padding="3,6,5,6">
             
             <MenuItem Header="File" Height="25" Width="auto"
                       FontSize="14"
@@ -124,7 +122,7 @@
                         <uc:DisplayNotebook.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="Rename"
-                                          />
+                                          Command="{Binding Source={StaticResource vm}}"/>
                             </ContextMenu>
                         </uc:DisplayNotebook.ContextMenu>
                     </uc:DisplayNotebook>
@@ -145,8 +143,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <ToolBarTray DockPanel.Dock="Top"
-                     Margin="0,0,10,0"
-                     Background="White">
+                     Margin="0,0,10,0">
             <ToolBar>
                 <Button Content="Speech"
                          Width="100"

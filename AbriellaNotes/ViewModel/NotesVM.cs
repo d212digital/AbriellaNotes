@@ -14,7 +14,8 @@ namespace AbriellaNotes.ViewModel
     public class NotesVM : INotifyPropertyChanged
     {
         public ObservableCollection<Notebook> Notebooks { get; set; }
-
+        public ObservableCollection<Note> Notes { get; set; }
+        
         private Notebook selecteNotebook;
 
         public Notebook SelectedNotebook
@@ -28,16 +29,17 @@ namespace AbriellaNotes.ViewModel
             }
         }
 
-        public ObservableCollection<Note> Notes { get; set; }
         public NewNotebookCommand NewNotebookCommand { get; set; }
         public NewNoteCommand NewNoteCommand { get; set; }
-
+        public EditCommand EditCommand { get; set; }
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
         public NotesVM()
         {
             NewNotebookCommand = new NewNotebookCommand(this);
             NewNoteCommand = new NewNoteCommand(this);
+            EditCommand = new EditCommand(this);
 
             Notebooks = new ObservableCollection<Notebook>();
             Notes = new ObservableCollection<Note>();
