@@ -132,5 +132,6 @@ namespace AbriellaNotes.View
             ContentRichTextBox.Selection.ApplyPropertyValue(Inline.FontSizeProperty, FontSizeComboBox.Text);
 
         }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AbriellaNotes.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,9 @@ namespace AbriellaNotes.ViewModel.Commands
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            Notebook notebook = parameter as Notebook;
+            if (notebook != null)
+            ViewModel.StopEditing(notebook);
         }
     }
 }
