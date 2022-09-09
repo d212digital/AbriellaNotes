@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace AbriellaNotes.ViewModel
 {
@@ -29,6 +30,18 @@ namespace AbriellaNotes.ViewModel
             }
         }
 
+        private Visibility isVisible;
+
+        public Visibility IsVisible
+        {
+            get { return isVisible; }
+            set 
+            { 
+                isVisible = value;
+                OnPropertyChanged("IsVisible");
+            }
+        }
+
         public NewNotebookCommand NewNotebookCommand { get; set; }
         public NewNoteCommand NewNoteCommand { get; set; }
         public EditCommand EditCommand { get; set; }
@@ -43,6 +56,8 @@ namespace AbriellaNotes.ViewModel
 
             Notebooks = new ObservableCollection<Notebook>();
             Notes = new ObservableCollection<Note>();
+
+            IsVisible = Visibility.Collapsed;
 
             GetNotebooks();
         }
@@ -106,7 +121,7 @@ namespace AbriellaNotes.ViewModel
 
         public void StartEditing()
         {
-            // TODO: Implement this method
+            IsVisible = Visibility.Visible;
 
         }
 

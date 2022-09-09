@@ -122,11 +122,11 @@
                         <uc:DisplayNotebook.ContextMenu>
                             <ContextMenu>
                                 <MenuItem Header="Rename"
-                                          Command="{Binding Source={StaticResource vm}}"/>
+                                          Command="{Binding Source={StaticResource vm}, Path=EditCommand}"/>
                             </ContextMenu>
                         </uc:DisplayNotebook.ContextMenu>
                     </uc:DisplayNotebook>
-                    <TextBox/>
+                    <TextBox Text="{Binding Name}" Visibility="{Binding Source={StaticResource vm}, Path=IsVisible}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
