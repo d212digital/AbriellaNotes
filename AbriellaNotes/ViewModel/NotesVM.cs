@@ -30,9 +30,9 @@ namespace AbriellaNotes.ViewModel
             }
         }
 
-        private Note SelectedNote;
+        private Note selectedNote;
 
-        public Note MyProperty
+        public Note SelectedNote
         {
             get { return SelectedNote; }
             set 

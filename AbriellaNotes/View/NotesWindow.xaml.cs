@@ -1,4 +1,5 @@
-﻿using Microsoft.CognitiveServices.Speech;
+﻿using AbriellaNotes.ViewModel;
+using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,12 @@ namespace AbriellaNotes.View
     /// </summary>
     public partial class NotesWindow : Window
     {
+        NotesVM viewModel;
         public NotesWindow()
         {
             InitializeComponent();
+            
+            viewModel = Resources["vm"] as NotesVM;
 
             var fontFamilies = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
             FontFamilyComboBox.ItemsSource = fontFamilies;
@@ -135,7 +139,7 @@ namespace AbriellaNotes.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+                       
 
         }
     }

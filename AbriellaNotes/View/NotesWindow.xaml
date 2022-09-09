@@ -145,6 +145,7 @@
         <ListView DockPanel.Dock="Left"
                   Width="380"
                   Background="LightGray"
+                  SelectedValue="{Binding SelectedNote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                   ItemsSource="{Binding Notes}">
             <ListView.ItemTemplate>
                 <DataTemplate>
