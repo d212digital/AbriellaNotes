@@ -1,7 +1,5 @@
 # AbriellaNotes
 
-# AbriellaNotes
-
 Simple Note taking App built with WPF 
 
 I've created and used Microsoft STT API endpoints using Azure and Microsoft.CognitiveServicesSpeechServices create your resource get your API Key, build the product and click speech. It's brilliantly accurate. 
