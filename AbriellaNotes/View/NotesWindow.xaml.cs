@@ -1,8 +1,10 @@
 ﻿using AbriellaNotes.ViewModel;
+using AbriellaNotes.ViewModel.Helpers;
 using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,14 +29,29 @@ namespace AbriellaNotes.View
         public NotesWindow()
         {
             InitializeComponent();
-            
+
             viewModel = Resources["vm"] as NotesVM;
+            viewModel.SelectedNoteChanged += ViewModel_SelectedNoteChanged;
 
             var fontFamilies = Fonts.SystemFontFamilies.OrderBy(f => f.Source);
             FontFamilyComboBox.ItemsSource = fontFamilies;
 
-            List<double> fontSizes = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 28, 48, 72};
+            List<double> fontSizes = new List<double>() { 8, 9, 10, 11, 12, 14, 16, 28, 48, 72 };
             FontSizeComboBox.ItemsSource = fontSizes;
+        }
+
+        private void ViewModel_SelectedNoteChanged(object sender, EventArgs e)
+        {
+            ContentRichTextBox.Document.Blocks.Clear();
+            if (viewModel.SelectedNote != null)
+            {
+                if (string.IsNullOrEmpty(viewModel.SelectedNote.FileLocation))
+                {
+                    FileStream fileStream = new FileStream(viewModel.SelectedNote.FileLocation, FileMode.Open);
+                    var contents = new TextRange(ContentRichTextBox.Document.ContentStart, ContentRichTextBox.Document.ContentEnd);
+                    contents.Load(fileStream, DataFormats.Rtf);
+                }
+            }
         }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
@@ -74,7 +91,7 @@ namespace AbriellaNotes.View
             bool isButtonChecked = (sender as ToggleButton).IsChecked ?? false;
 
             if (isButtonChecked)
-           
+
                 ContentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Bold);
             else
                 ContentRichTextBox.Selection.ApplyPropertyValue(Inline.FontWeightProperty, FontWeights.Normal);
@@ -84,7 +101,7 @@ namespace AbriellaNotes.View
         {
             var selectedWeight = ContentRichTextBox.Selection.GetPropertyValue(Inline.FontWeightProperty);
             BoldButton.IsChecked = (selectedWeight != DependencyProperty.UnsetValue) && selectedWeight.Equals(FontWeights.Bold);
-            
+
             var selectedStyle = ContentRichTextBox.Selection.GetPropertyValue(Inline.FontStyleProperty);
             ItalicButton.IsChecked = (selectedStyle != DependencyProperty.UnsetValue) && selectedStyle.Equals(FontStyles.Italic);
 
@@ -118,7 +135,7 @@ namespace AbriellaNotes.View
             {
                 TextDecorationCollection textDecorations;
                 (ContentRichTextBox.Selection.GetPropertyValue(Inline.TextDecorationsProperty) as TextDecorationCollection).TryRemove(TextDecorations.Underline, out textDecorations);
-                ContentRichTextBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, textDecorations);    
+                ContentRichTextBox.Selection.ApplyPropertyValue(Inline.TextDecorationsProperty, textDecorations);
             }
         }
 
@@ -139,8 +156,13 @@ namespace AbriellaNotes.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-                       
+            string rtfFile = System.IO.Path.Combine(Environment.CurrentDirectory, $"{viewModel.SelectedNote.Id}.rtf");
+            viewModel.SelectedNote.FileLocation = rtfFile;
+            DatabaseHelper.Update(viewModel.SelectedNote);
 
+            FileStream fileStream = new FileStream(rtfFile, FileMode.Create);
+            var contents = new TextRange(ContentRichTextBox.Document.ContentStart, ContentRichTextBox.Document.ContentEnd);
+            contents.Save(fileStream, DataFormats.Rtf);
         }
     }
 }

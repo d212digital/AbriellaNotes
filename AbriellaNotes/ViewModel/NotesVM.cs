@@ -34,11 +34,12 @@ namespace AbriellaNotes.ViewModel
 
         public Note SelectedNote
         {
-            get { return SelectedNote; }
+            get { return selectedNote; }
             set 
             { 
-                SelectedNote = value;
+                selectedNote = value;
                 OnPropertyChanged("SelectedNote");
+                SelectedNoteChanged?.Invoke(this, new EventArgs());
             }
         }
         
@@ -60,6 +61,7 @@ namespace AbriellaNotes.ViewModel
         public EndEditingCommand EndEditingCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler SelectedNoteChanged;
 
         public NotesVM()
         {
