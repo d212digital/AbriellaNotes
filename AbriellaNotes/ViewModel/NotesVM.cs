@@ -124,6 +124,11 @@ namespace AbriellaNotes.ViewModel
             IsVisible = Visibility.Visible;
 
         }
+        public void StopEditing(Notebook notebook)
+        {
+            IsVisible = Visibility.Collapsed;
+            DatabaseHelper.Update(notebook);
+        }
 
     }
 }
