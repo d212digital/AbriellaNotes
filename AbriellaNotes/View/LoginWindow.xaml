@@ -8,23 +8,54 @@
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
         Title="LoginWindow" Height="450" Width="800">
+    
     <Window.Resources>
         <ResourceDictionary>
             <vm:LoginVM x:Key="vm"/>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid DataContext="{StaticResource vm}">
-        <StackPanel Visibility="{Binding LoginVis}">
+    
+    <Grid DataContext="{StaticResource vm}"
+          Background="WhiteSmoke">
+        
+        <StackPanel Visibility="{Binding LoginVis}"
+                    Margin="15"
+                    HorizontalAlignment="Center">
+            
+            <TextBlock Text="UserName:"/>
+            <TextBox Text="{Binding User.Username}"
+                     Margin="0,5,0,5" Width="150"
+                     Height="20"/>
+            
+            <TextBlock Text="Password:"/>
+            <TextBox Text="{Binding User.Password}"
+                     Margin="0,5,0,5" 
+                     Width="150"
+                     Height="20"/>
+
+            <Button Command="{Binding LoginCommand}"
+                    Content="Login"
+                    Margin="0,15,0,15"
+                    BorderBrush="Black">
+                <Button.BitmapEffect>
+                    <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.2" />
+                </Button.BitmapEffect>
+            </Button>
+
+
             <TextBlock Text="Register"
                        Foreground="Black"
                        TextDecorations="Underline">
+                
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
                        <i:InvokeCommandAction Command="{Binding ShowRegisterCommand}"/> 
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
+                
             </TextBlock>
         </StackPanel>
+        
         <StackPanel Visibility="{Binding RegisterVis}">
             <TextBlock Text="Login"
                        Foreground="Black"

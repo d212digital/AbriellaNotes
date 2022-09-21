@@ -47,7 +47,9 @@ namespace AbriellaNotes.View
             {
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.Show();
-                this.Close();
+
+                viewModel.GetNotebooks();
+
             }
         }
 

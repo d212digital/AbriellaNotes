@@ -106,7 +106,7 @@ namespace AbriellaNotes.ViewModel
 
         }
 
-        private void GetNotebooks()
+        public void GetNotebooks()
         {
             var notebooks = DatabaseHelper.Read<Notebook>();
 
