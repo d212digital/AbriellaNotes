@@ -15,14 +15,52 @@ namespace AbriellaNotes.ViewModel
 		private bool isShowingRegister = false;
         
 		private User user;
-
 		public User User
 		{
 			get { return user; }
-			set { user = value; }
+			set 
+            { 
+                user = value;
+                OnPropertyChanged("User");
+            }
 		}
 
-		private Visibility loginVis;
+        private string username;
+        public string Username
+        {
+            get { return username; }
+            set
+            {
+                username = value;
+                User = new User
+                {
+                    Username = username,
+                    Password = this.Password
+                };
+                
+                OnPropertyChanged("Username");
+            }
+        }
+
+        private string password;
+        public string Password
+        {
+            get { return password; }
+            set
+            {
+                password = value;
+                User = new User
+                {
+                    Username = username,
+                    Password = this.Password
+                };
+                
+                OnPropertyChanged("Password");
+            }
+        }
+
+
+        private Visibility loginVis;
 
 		public event PropertyChangedEventHandler PropertyChanged;
 

@@ -23,12 +23,12 @@
                     HorizontalAlignment="Center">
             
             <TextBlock Text="UserName:"/>
-            <TextBox Text="{Binding User.Username, Mode=TwoWay}"
+            <TextBox Text="{Binding Username, Mode=TwoWay}"
                      Margin="0,5,0,5" Width="150"
                      Height="20"/>
             
             <TextBlock Text="Password:"/>
-            <TextBox Text="{Binding User.Password}"
+            <TextBox Text="{Binding Password}"
                      Margin="0,5,0,5" 
                      Width="150"
                      Height="20"/>
