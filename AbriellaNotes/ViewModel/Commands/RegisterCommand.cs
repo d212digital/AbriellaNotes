@@ -8,7 +8,11 @@ namespace AbriellaNotes.ViewModel.Commands
     public class RegisterCommand : ICommand
     {
         public LoginVM ViewModel { get; set; }
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
 
         public RegisterCommand(LoginVM vm)
         {
@@ -18,18 +22,18 @@ namespace AbriellaNotes.ViewModel.Commands
         public bool CanExecute(object parameter)
         {
             User user = parameter as User;
+
             if (user == null)
-            {
                 return false;
-            }
-            if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password) || string.IsNullOrEmpty(user.ConfirmPassword)) 
-            {
+            if (string.IsNullOrEmpty(user.Username))
                 return false;
-            }
+            if (string.IsNullOrEmpty(user.Password))
+                return false;
+            if (string.IsNullOrEmpty(user.ConfirmPassword))
+                return false;
             if (user.Password != user.ConfirmPassword)
-            {
                 return false;
-            }        
+
             return true;
         }
 

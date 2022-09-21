@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:AbriellaNotes.View"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
+        Title="LoginWindow" Height="450" Width="600">
     
     <Window.Resources>
         <ResourceDictionary>
@@ -23,14 +23,15 @@
                     HorizontalAlignment="Center">
             
             <TextBlock Text="UserName:"/>
-            <TextBox Text="{Binding Username, Mode=TwoWay}"
-                     Margin="0,5,0,5" Width="150"
+            <TextBox Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Margin="0,5,0,5" 
+                     Width="250"
                      Height="20"/>
             
             <TextBlock Text="Password:"/>
-            <TextBox Text="{Binding Password}"
+            <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      Margin="0,5,0,5" 
-                     Width="150"
+                     Width="250"
                      Height="20"/>
 
             <Button Command="{Binding LoginCommand}"
@@ -58,30 +59,33 @@
                     HorizontalAlignment="Center">
 
             <TextBlock Text="UserName:"/>
-            <TextBox Text="{Binding User.Username,Mode=TwoWay}"
-                     Margin="0,5,0,5" Width="150"
+            <TextBox Text="{Binding Username,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Margin="0,5,0,5" 
+                     Width="250"
                      Height="20"/>
 
             <TextBlock Text="First Name:"/>
-            <TextBox Text="{Binding User.Name, Mode=TwoWay}"
-                     Margin="0,5,0,5" Width="150"
+            <TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Margin="0,5,0,5" 
+                     Width="250"
                      Height="20"/>
 
             <TextBlock Text="Last Name:"/>
-            <TextBox Text="{Binding User.Lastname, Mode=TwoWay}"
-                     Margin="0,5,0,5" Width="150"
+            <TextBox Text="{Binding Lastname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Margin="0,5,0,5" 
+                     Width="250"
                      Height="20"/>
 
             <TextBlock Text="Password:"/>
-            <TextBox Text="{Binding User.Password, Mode=TwoWay}"
+            <TextBox Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      Margin="0,5,0,5" 
-                     Width="150"
+                     Width="250"
                      Height="20"/>
             
             <TextBlock Text="Confirm Password:"/>
-            <TextBox Text="{Binding User.ConfirmPassword, Mode=TwoWay}"
+            <TextBox Text="{Binding ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      Margin="0,5,0,5" 
-                     Width="150"
+                     Width="250"
                      Height="20"/>
 
             <Button Command="{Binding RegisterCommand}"
@@ -90,7 +94,7 @@
                     Margin="0,15,0,15"
                     BorderBrush="Black"/>
 
-            <TextBlock Text="Login"
+            <TextBlock Text="Register"
                        Foreground="Black"
                        TextDecorations="Underline">
                 

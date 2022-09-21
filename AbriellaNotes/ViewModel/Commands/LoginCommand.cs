@@ -7,13 +7,15 @@ namespace AbriellaNotes.ViewModel.Commands
     public class LoginCommand : ICommand
     {
         public LoginVM ViewModel { get; set; }
-
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
 
         public LoginCommand(LoginVM vm)
         {
             ViewModel = vm;
-
         }
 
         public bool CanExecute(object parameter)
@@ -21,13 +23,11 @@ namespace AbriellaNotes.ViewModel.Commands
             User user = parameter as User;
 
             if (user == null)
-            {
                 return false;
-            }
-            if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password))
-            {
+            if (string.IsNullOrEmpty(user.Username))
                 return false;
-            }
+            if (string.IsNullOrEmpty(user.Password))
+                return false;
             return true;
         }
 
