@@ -98,6 +98,8 @@ namespace AbriellaNotes.ViewModel
 			RegisterCommand = new RegisterCommand(this);
 			LoginCommand = new LoginCommand(this);
             ShowRegisterCommand = new ShowRegisterCommand(this);
+
+            User = new User();
         }
 
         public void SwitchViews()
