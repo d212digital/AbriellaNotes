@@ -155,7 +155,7 @@
         </ListView>
         <ToolBarTray DockPanel.Dock="Top"
                      Margin="0,0,10,0"
-                     Background="LightCyan">
+                     >
             <ToolBar>
                 <Button Content="Speech"
                          Width="100"
