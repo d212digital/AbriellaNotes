@@ -40,6 +40,17 @@ namespace AbriellaNotes.View
             FontSizeComboBox.ItemsSource = fontSizes;
         }
 
+        protected override void OnActivated(EventArgs e)
+        {
+            base.OnActivated(e);
+            if (string.IsNullOrEmpty(App.UserId))
+            {
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Show();
+                this.Close();
+            }
+        }
+
         private void ViewModel_SelectedNoteChanged(object sender, EventArgs e)
         {
             ContentRichTextBox.Document.Blocks.Clear();
