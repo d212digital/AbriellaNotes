@@ -26,6 +26,10 @@ namespace AbriellaNotes.ViewModel.Commands
             {
                 return false;
             }
+            if (user.Password != user.ConfirmPassword)
+            {
+                return false;
+            }        
             return true;
         }
 

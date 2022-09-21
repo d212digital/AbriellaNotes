@@ -23,7 +23,7 @@
                     HorizontalAlignment="Center">
             
             <TextBlock Text="UserName:"/>
-            <TextBox Text="{Binding User.Username}"
+            <TextBox Text="{Binding User.Username, Mode=TwoWay}"
                      Margin="0,5,0,5" Width="150"
                      Height="20"/>
             
@@ -58,28 +58,28 @@
                     HorizontalAlignment="Center">
 
             <TextBlock Text="UserName:"/>
-            <TextBox Text="{Binding User.Username}"
+            <TextBox Text="{Binding User.Username,Mode=TwoWay}"
                      Margin="0,5,0,5" Width="150"
                      Height="20"/>
 
             <TextBlock Text="First Name:"/>
-            <TextBox Text="{Binding User.Name}"
+            <TextBox Text="{Binding User.Name, Mode=TwoWay}"
                      Margin="0,5,0,5" Width="150"
                      Height="20"/>
 
             <TextBlock Text="Last Name:"/>
-            <TextBox Text="{Binding User.Lastname}"
+            <TextBox Text="{Binding User.Lastname, Mode=TwoWay}"
                      Margin="0,5,0,5" Width="150"
                      Height="20"/>
 
             <TextBlock Text="Password:"/>
-            <TextBox Text="{Binding User.Password}"
+            <TextBox Text="{Binding User.Password, Mode=TwoWay}"
                      Margin="0,5,0,5" 
                      Width="150"
                      Height="20"/>
             
             <TextBlock Text="Confirm Password:"/>
-            <TextBox Text="{Binding User.ConfirmPassword}"
+            <TextBox Text="{Binding User.ConfirmPassword, Mode=TwoWay}"
                      Margin="0,5,0,5" 
                      Width="150"
                      Height="20"/>
