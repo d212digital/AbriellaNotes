@@ -34,13 +34,10 @@
                      Height="20"/>
 
             <Button Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding User}"
                     Content="Login"
                     Margin="0,15,0,15"
-                    BorderBrush="Black">
-                <Button.BitmapEffect>
-                    <DropShadowBitmapEffect Color="Black" Direction="320" Softness="1" ShadowDepth="10" Opacity="0.2" />
-                </Button.BitmapEffect>
-            </Button>
+                    BorderBrush="White"/>
 
 
             <TextBlock Text="Register"
@@ -56,15 +53,53 @@
             </TextBlock>
         </StackPanel>
         
-        <StackPanel Visibility="{Binding RegisterVis}">
+        <StackPanel Visibility="{Binding RegisterVis}"
+                    Margin="15"
+                    HorizontalAlignment="Center">
+
+            <TextBlock Text="UserName:"/>
+            <TextBox Text="{Binding User.Username}"
+                     Margin="0,5,0,5" Width="150"
+                     Height="20"/>
+
+            <TextBlock Text="First Name:"/>
+            <TextBox Text="{Binding User.Name}"
+                     Margin="0,5,0,5" Width="150"
+                     Height="20"/>
+
+            <TextBlock Text="Last Name:"/>
+            <TextBox Text="{Binding User.Lastname}"
+                     Margin="0,5,0,5" Width="150"
+                     Height="20"/>
+
+            <TextBlock Text="Password:"/>
+            <TextBox Text="{Binding User.Password}"
+                     Margin="0,5,0,5" 
+                     Width="150"
+                     Height="20"/>
+            
+            <TextBlock Text="Confirm Password:"/>
+            <TextBox Text="{Binding User.ConfirmPassword}"
+                     Margin="0,5,0,5" 
+                     Width="150"
+                     Height="20"/>
+
+            <Button Command="{Binding LoginCommand}"
+                    CommandParameter="{Binding User}"
+                    Content="Login"
+                    Margin="0,15,0,15"
+                    BorderBrush="Black"/>
+
             <TextBlock Text="Login"
                        Foreground="Black"
                        TextDecorations="Underline">
+                
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseLeftButtonDown">
                        <i:InvokeCommandAction Command="{Binding ShowRegisterCommand}"/> 
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
+                
             </TextBlock>
         </StackPanel>
     </Grid>
