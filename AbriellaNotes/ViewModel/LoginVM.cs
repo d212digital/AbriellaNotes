@@ -77,6 +77,16 @@ namespace AbriellaNotes.ViewModel
                 LoginVis = Visibility.Visible; 
             }
         }
+        
+        public void Login()
+        {
+            // Todo
+        }
+        
+        public void Register() 
+        {
+            // Todo
+        }
 
         private void OnPropertyChanged(string propertyName)
         {

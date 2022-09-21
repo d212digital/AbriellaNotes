@@ -1,30 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AbriellaNotes.Model;
+using System;
 using System.Windows.Input;
+
 
 namespace AbriellaNotes.ViewModel.Commands
 {
     public class RegisterCommand : ICommand
     {
-        public LoginVM VM { get; set; }
+        public LoginVM ViewModel { get; set; }
         public event EventHandler CanExecuteChanged;
 
         public RegisterCommand(LoginVM vm)
         {
-            VM = vm;
+            ViewModel = vm;
         }
 
         public bool CanExecute(object parameter)
         {
+            User user = parameter as User;
+            if (user == null)
+            {
+                return false;
+            }
+            if (string.IsNullOrEmpty(user.Username) || string.IsNullOrEmpty(user.Password) || string.IsNullOrEmpty(user.ConfirmPassword)) 
+            {
+                return false;
+            }
             return true;
         }
 
         public void Execute(object parameter)
         {
-            //TODO
+            ViewModel.Register();
         }
     }
 }
